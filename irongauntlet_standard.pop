@@ -89,7 +89,7 @@ WaveSchedule
 			Skill Expert
 			Item "the kritzkrieg"
 			Attributes SpawnWithFullCharge
-      CharacterAttributes
+      			CharacterAttributes
 			{
 				"bot medic uber health threshold" 300 //Forces Medic to uber at all times
 			}
