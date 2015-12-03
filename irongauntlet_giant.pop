@@ -1,0 +1,62 @@
+// -- These attributes must attached to a weapon using ItemAttributes and then ItemName --
+
+// "Blast radius decreased"
+// "Reload time decreased"
+// "airblast pushback scale"
+// "arrow mastery"
+// "attack projectiles"
+// "bullets per shot bonus"
+// "clip size bonus"
+// "clip size penalty"
+// "clip size upgrade atomic"
+// "cloak consume rate increased"
+// "critboost on kill"
+// "damage bonus"
+// "damage causes airblast"
+// "damage penalty"
+// "effect bar recharge rate increased"
+// "faster reload rate"
+// "fire rate bonus"
+// "fire rate penalty"
+// "flame life bonus"
+// (not sure about this one -- can't even find where it gets used at a glance) "multiple sentries"
+// "projectile penetration"
+// "projectile spread angle penalty"
+// "scattergun knockback mult"
+// "uber duration bonus"
+// "ubercharge rate bonus"
+// "use large smoke explosion"
+// ----------------------------------------------------
+
+WaveSchedule
+{
+	Templates
+	{
+	  //Medics
+    T_TFBot_Giant_Medic_Crit //Giant Krit Medic
+		{
+			ClassIcon medic_giant
+			Health 4500
+			Name "Giant Krit Medic"
+			Class Medic
+			ClassIcon medic_kritz_giant
+			Skill Expert
+			Attributes MiniBoss
+			Attributes SpawnWithFullCharge
+			Item "the kritzkrieg"
+			ItemAttributes
+			{
+				ItemName "the kritzkrieg"
+				"ubercharge rate bonus"	5
+				"uber duration bonus" 12
+			}
+			CharacterAttributes
+			{
+				"bot medic uber health threshold" 5000 //forces medic to constantly uber
+				"move speed bonus"	0.5
+				"damage force reduction" 0.6
+				"airblast vulnerability multiplier"	0.6
+			}
+		}
+	}
+}
