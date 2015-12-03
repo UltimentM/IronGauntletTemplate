@@ -1,0 +1,104 @@
+// -- These attributes must attached to a weapon using ItemAttributes and then ItemName --
+
+// "Blast radius decreased"
+// "Reload time decreased"
+// "airblast pushback scale"
+// "arrow mastery"
+// "attack projectiles"
+// "bullets per shot bonus"
+// "clip size bonus"
+// "clip size penalty"
+// "clip size upgrade atomic"
+// "cloak consume rate increased"
+// "critboost on kill"
+// "damage bonus"
+// "damage causes airblast"
+// "damage penalty"
+// "effect bar recharge rate increased"
+// "faster reload rate"
+// "fire rate bonus"
+// "fire rate penalty"
+// "flame life bonus"
+// (not sure about this one -- can't even find where it gets used at a glance) "multiple sentries"
+// "projectile penetration"
+// "projectile spread angle penalty"
+// "scattergun knockback mult"
+// "uber duration bonus"
+// "ubercharge rate bonus"
+// "use large smoke explosion"
+// ----------------------------------------------------
+WaveSchedule
+{
+	Templates
+	{
+		// Medics
+		T_TFBot_Medic_Vac_Bullet	//Vaccinator Medics
+		{
+			ClassIcon medic_vac
+			Name "Vaccinator"
+			Class Medic
+			Skill Expert
+			Item "the vaccinator"
+			Attributes SpawnWithFullCharge
+			Attributes VaccinatorBullets
+			ItemAttributes
+			{
+				ItemName "the vaccinator"
+				"uber duration bonus" 8
+			}
+		}
+		
+		T_TFBot_Medic_Vac_Blast
+		{
+			ClassIcon medic_vac
+			Name "Vaccinator"
+			Class Medic
+			Skill Expert
+			Item "the vaccinator"
+			Attributes SpawnWithFullCharge
+			Attributes VaccinatorBlast
+			ItemAttributes
+			{
+				ItemName "the vaccinator"
+				"uber duration bonus" 8
+			}
+		}
+		
+		T_TFBot_Medic_Vac_Fire
+		{
+			ClassIcon medic_vac
+			Name "Vaccinator"
+			Class Medic
+			Skill Expert
+			Item "the vaccinator"
+			Attributes SpawnWithFullCharge
+			Attributes VaccinatorFire
+			ItemAttributes
+			{
+				ItemName "the vaccinator"
+				"uber duration bonus" 8
+			}
+		}
+		
+		T_TFBot_Medic_Crit		//Critboosts fellow robots
+		{
+			ClassIcon medic //No icon. Need to update :P
+			Health 150
+			Name "Kritz Medic"
+			Class Medic
+			Skill Expert
+			Item "the kritzkrieg"
+			Attributes SpawnWithFullCharge
+      CharacterAttributes
+			{
+				"bot medic uber health threshold" 300 //Forces Medic to uber at all times
+			}
+			ItemAttributes
+			{
+				ItemName "the kritzkrieg"
+				"ubercharge rate bonus"	3.5
+				"uber duration bonus" 4
+			}
+		}
+	}
+}
