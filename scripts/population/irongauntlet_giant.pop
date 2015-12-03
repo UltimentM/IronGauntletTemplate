@@ -32,8 +32,8 @@ WaveSchedule
 {
 	Templates
 	{
-	  //Medics
-    T_TFBot_Giant_Medic_Crit //Giant Krit Medic
+		//Medics
+		 T_TFBot_Giant_Medic_Crit //Giant Krit Medic
 		{
 			ClassIcon medic_giant
 			Health 4500
