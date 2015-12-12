@@ -39,7 +39,7 @@ WaveSchedule
 			Health 4500
 			Name "Giant Krit Medic"
 			Class Medic
-			ClassIcon medic_kritz_giant
+			ClassIcon medic_giant	//Icon to change in future
 			Skill Expert
 			Attributes MiniBoss
 			Attributes SpawnWithFullCharge
@@ -52,10 +52,11 @@ WaveSchedule
 			}
 			CharacterAttributes
 			{
-				"bot medic uber health threshold" 5000 //forces medic to constantly uber
+				"bot medic uber health threshold" 5000 //Forces medic to constantly uber
 				"move speed bonus"	0.5
 				"damage force reduction" 0.6
 				"airblast vulnerability multiplier"	0.6
+				"heal rate bonus" 200
 			}
 		}
 	}
