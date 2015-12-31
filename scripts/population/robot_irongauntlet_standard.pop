@@ -31,6 +31,68 @@ WaveSchedule
 {
 	Templates
 	{
+		//Scouts
+		T_TFBot_Scout_Crit
+		{
+			WeaponRestrictions	PrimaryOnly
+			Skill	Hard
+			Name	"CRIT! Scout"
+			Class	Scout
+			ClassIcon	scout_bonk					//ClassIcon to be updated in future
+			Item	"crit-a-cola"
+			Item	"bonk helm"
+			ItemAttributes
+			{
+				ItemName "crit-a-cola"
+				"effect bar recharge rate increased" 0.75
+			}
+		}
+		//Soldiers
+		T_TFBot_Soldier_Miner						//demoknight-like soldier with escape plan
+		{
+			Name "Miner Soldier"
+			Class Soldier
+			ClassIcon soldier_equalizer
+			WeaponRestrictions MeleeOnly
+			Skill Easy
+			Item "The Equalizer"
+			Item "Potato Hat"
+			ItemAttributes
+			{
+				ItemName "The Equalizer"
+				"damage bonus" 1.75
+				"critboost on kill"	3
+				"no self blast dmg"	1				//no death from taunt
+			}
+		}
+		//Heavies
+		T_TFBot_Heavy_Grapple
+		{
+			Class Heavy
+			Name "Grapple Heavy"
+			Health 200
+			ClassIcon heavy_grapple
+			Skill Hard
+			MaxVisionRange 1200
+			WeaponRestrictions PrimaryOnly
+			Item "Natascha"
+			ItemAttributes
+			{
+				ItemName "Natascha"
+				"apply look velocity on damage" -80
+				"apply z velocity on damage" -80
+				"damage penalty" 0.50
+			}
+		}
+		
+		T_TFBot_Heavy_Shotgun						//Wields regular shotgun, no attributes
+		{
+			Class Heavyweapons
+			ClassIcon heavy_shotgun
+			Name "Shotgun Heavy"
+			Skill Hard
+			WeaponRestrictions SecondaryOnly
+		}
 		// Medics
 		T_TFBot_Medic_Vac_Bullet	//Vaccinator Medics
 		{
@@ -82,14 +144,13 @@ WaveSchedule
 		
 		T_TFBot_Medic_Crit		//Critboosts fellow robots
 		{
-			ClassIcon medic //No icon. Need to update :P
-			Health 150
-			Name "Kritz Medic"
+			ClassIcon medic_kritzk
+			Name "Krit Medic"
 			Class Medic
 			Skill Expert
 			Item "the kritzkrieg"
 			Attributes SpawnWithFullCharge
-      			CharacterAttributes
+      		CharacterAttributes
 			{
 				"bot medic uber health threshold" 300 //Forces Medic to uber at all times
 			}
@@ -98,6 +159,87 @@ WaveSchedule
 				ItemName "the kritzkrieg"
 				"ubercharge rate bonus"	3.5
 				"uber duration bonus" 4
+			}
+		}
+		
+		T_TFBot_Medic_Shield
+		{
+			ClassIcon	medic_shield
+			Name	"Shield Medic"
+			Class	Medic
+			Skill	Expert
+			WeaponRestrictions	SecondaryOnly
+			Attributes	"SpawnWithFullCharge"
+			Attributes	"ProjectileShield"
+			ItemAttributes
+			{
+				ItemName	tf_weapon_syringegun_medic
+				"damage penalty"	0.1
+			}
+			ItemAttributes
+			{
+				ItemName	tf_weapon_medigun
+				"uber duration bonus"	-8
+				"generate rage on heal"	1
+				"increase buff duration"	0.6
+			}
+		}
+		
+		T_TFBot_Medic_Shield_Advanced
+		{
+			ClassIcon	medic_shield
+			Name	"Advanced Shield Medic"
+			Class	Medic
+			Skill	Expert
+			WeaponRestrictions	SecondaryOnly
+			Attributes	"SpawnWithFullCharge"
+			Attributes	"ProjectileShield"
+			Item	"prussian pickelhaube"
+			ItemAttributes
+			{
+				ItemName	tf_weapon_syringegun_medic
+				"damage penalty"	0.1
+			}
+			ItemAttributes
+			{
+				ItemName	tf_weapon_medigun
+				"uber duration bonus"	-8
+				"generate rage on heal"	2
+			}
+		}
+		//Snipers
+		T_TFBot_Sniper_Camper						//Sniper with cozy camper, heals 5hp per sec
+		{
+			Name "Camper Sniper"
+			Class Sniper
+			Item "The Cozy Camper"
+			Skill Hard
+			MaxVisionRange 2500
+			ItemAttributes
+			{
+				ItemName "The Cozy Camper"
+				"health regen" 5
+			}
+		}
+		
+		T_TFBot_Sniper_Firecracker
+		{
+			Skill	Expert
+			Name	"Firecracker Sniper"
+			Class	Sniper
+			MaxVisionRange	3000
+			Item	"hong kong cone"
+			ClassIcon	sniper_flame
+			ItemAttributes
+			{
+				ItemName	"tf_weapon_sniperrifle"
+				"crit vs burning players"	1
+				"crit kill will gib"	1
+			}
+			ItemAttributes
+			{
+				ItemName	"tf_weapon_club"
+				"Set DamageType Ignite"	1
 			}
 		}
 	}
