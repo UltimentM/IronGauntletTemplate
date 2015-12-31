@@ -32,14 +32,122 @@ WaveSchedule
 {
 	Templates
 	{
-		//Medics
-		 T_TFBot_Giant_Medic_Crit //Giant Krit Medic
+		//Soldiers
+		T_TFBot_Giant_Soldier_Miner					//similar to giant demoknight, damage bonus and crits on kill, Faster
 		{
-			ClassIcon medic_giant
+			Name "Giant Miner Soldier"
+			Class Soldier
+			ClassIcon soldier_escape
+			WeaponRestrictions MeleeOnly
+			Health 5000
+			Skill Expert
+			Attributes MiniBoss
+			Item "The Escape Plan"
+			Item "Potato Hat"
+			ItemAttributes
+			{
+				ItemName "The Escape Plan"
+				"mod shovel damage boost"	1		//equalizer attribute
+				"critboost on kill"	3
+			}
+			CharacterAttributes
+			{
+				"override footstep sound set"	3
+				"move speed bonus"	1.1
+				"airblast vulnerability multiplier"	0.4
+				"damage force reduction"	0.4
+			}
+		}
+		//Heavies
+		T_TFBot_Giant_Heavyweapons_Golem
+		{
+			ClassIcon	heavy_steelfist_giant
+			Health	5000
+			Name	"Steel Golem"
+			Class	HeavyWeapons
+			Skill	Expert
+			WeaponRestrictions	MeleeOnly
+			Attributes	"MiniBoss"
+			Item	"fists of steel"
+			Item	"big steel jaw of summer fun"
+			Item	"the leftover trap"
+			ItemAttributes
+			{
+				ItemName	"fists of steel"
+				"fire rate penalty"	1.5
+				"damage bonus"	1.5
+			}
+			CharacterAttributes
+			{
+				"damage force reduction"	0.3
+				"airblast vulnerability multiplier"	0.3
+				"override footstep sound set"	2
+				"move speed bonus"	0.45
+			}
+		}
+		T_TFBot_Giant_Heavy_Booster					//similar to Giant Heal-on-kill heavy, changed, new icon
+		{
+			Class Heavyweapons
+			Name "Giant Booster Heavy"
+			ClassIcon heavy_healonkill
+			Skill Expert
+			Health 5000
+			WeaponRestrictions PrimaryOnly
+			MaxVisionRange 1200
+			Attributes MiniBoss
+			Item "Tough Guy's Toque"
+			ItemAttributes
+			{
+				ItemName "TF_WEAPON_MINIGUN"
+				"heal on kill" 1000					//+20% HP on kill
+				"critboost on kill" 3				//3 second crit-boost on kill
+				"speed_boost_on_kill" 3				//3 second speed boost on kill
+			}
+			CharacterAttributes
+			{
+				"move speed bonus"	0.5
+				"damage force reduction" 0.3
+				"airblast vulnerability multiplier" 0.3
+				"override footstep sound set" 2
+			}
+		}
+		//Pyros
+		T_TFBot_Giant_Pyro_FlareHeal
+		{
+			Class	Pyro
+			Name	"Giant Flareheal Pyro"
+			Health	3500
+			ClassIcon	pyro_flareheal_giant
+			Skill	Expert
+			MaxVisionRange	1500
+			WeaponRestrictions	SecondaryOnly
+			Attributes	"MiniBoss"
+			Item	"The Detonator"
+			ItemAttributes
+			{
+				ItemName "The Detonator"
+				"heal on hit for slowfire" 300
+				"weapon burn dmg reduced" 0.30
+				"weapon burn time increased" 1.30
+				"damage causes airblast" 1
+				"damage bonus" 1.25
+				"faster reload rate" 0.40
+			}
+			CharacterAttributes
+			{
+				"move speed bonus" 0.5
+				"damage force reduction" 0.6
+				"airblast vulnerability multiplier" 0.6
+				"override footstep sound set" 6
+			}
+		}
+		//Medics
+		T_TFBot_Giant_Medic_Crit
+		{
+			ClassIcon medic_kritzk_giant
 			Health 4500
 			Name "Giant Krit Medic"
 			Class Medic
-			ClassIcon medic_giant	//Icon to change in future
 			Skill Expert
 			Attributes MiniBoss
 			Attributes SpawnWithFullCharge
@@ -52,11 +160,213 @@ WaveSchedule
 			}
 			CharacterAttributes
 			{
-				"bot medic uber health threshold" 5000 //Forces medic to constantly uber
+				"bot medic uber health threshold" 7500 //Forces medic to constantly uber
 				"move speed bonus"	0.5
 				"damage force reduction" 0.6
 				"airblast vulnerability multiplier"	0.6
 				"heal rate bonus" 200
+			}
+		}
+		
+		T_TFBot_Giant_Medic_Shield
+		{
+			ClassIcon	medic_shield_giant
+			Health	4500
+			Name	"Giant Shield Medic"
+			Class	Medic
+			Skill	Expert
+			WeaponRestrictions	SecondaryOnly
+			Attributes	"SpawnWithFullCharge"
+			Attributes	"ProjectileShield"				//Makes medic use projectile shield
+			Attributes	"MiniBoss"
+			Item	"prussian pickelhaube"
+			ItemAttributes
+			{
+				ItemName	"tf_weapon_syringegun_medic"
+				"damage penalty"	0.1
+			}
+			ItemAttributes
+			{
+				ItemName	"tf_weapon_medigun"
+				"uber duration bonus"	-8
+				"generate rage on heal"	2
+			}
+			CharacterAttributes
+			{
+				"move speed bonus"	0.5
+				"damage force reduction"	0.6
+				"airblast vulnerability multiplier"	0.6
+				"heal rate bonus"	200
+			}
+		}
+		//Special
+		T_TFBot_Chief_Pyro_Leaker
+		{
+			WeaponRestrictions	PrimaryOnly
+			Scale	1.9
+			Health	60000
+			Skill	Expert
+			Name	"Chief Leaker"
+			Class	Pyro
+			ClassIcon	igniterpyro
+			Attributes	"MiniBoss"
+			Attributes	"UseBossHealthBar"
+			Item	"the degreaser"
+			Item	"the attendant"
+			CharacterAttributes
+			{
+				"override footstep sound set"	2
+				"move speed bonus"	0.4
+				"airblast vulnerability multiplier"	0.3
+				"damage force reduction"	0.3
+				"rage giving scale"	0.1
+				"airblast vertical vulnerability multiplier"	0.1
+				"health regen"	300
+			}
+			ItemAttributes
+			{
+				ItemName	"the degreaser"
+				"airblast pushback scale"	2
+				"weapon burn time increased"	20
+				"weapon burn dmg increased"	0.1
+				"flame size bonus"	1.5
+				"flame life bonus"	1.5
+				"damage penalty"	0.25
+			}
+		}
+		
+		T_TFBot_Chief_Soldier_Quadfire1
+		{
+			ClassIcon	soldier_quadfire
+			Health	17000
+			Name	"Captain Quadfire"
+			Class	Soldier
+			Skill	Expert
+			Item	"the chief constable"
+			WeaponRestrictions	PrimaryOnly
+			Attributes	"HoldFireUntilFullReload"
+			Attributes	"MiniBoss"
+			Attributes	"UseBossHealthBar"
+			ItemAttributes
+			{
+				ItemName	tf_weapon_rocketlauncher
+				"fire rate bonus"	0
+				"damage bonus"	1.25
+				"projectile spread angle penalty"	4
+			}
+			CharacterAttributes
+			{
+				"move speed bonus"	0.5
+				"damage force reduction"	0.4
+				"airblast vulnerability multiplier"	0.4
+				"override footstep sound set"	3
+				"airblast vertical vulnerability multiplier"	0.4
+				"rage giving scale"	0.5
+			}
+		}
+		
+		T_TFBot_Chief_Soldier_Quadfire2
+		{
+			ClassIcon	soldier_quadfire
+			Health	37000
+			Name	"Captain Quadfire"
+			Class	Soldier
+			Skill	Expert
+			Item	"the chief constable"
+			WeaponRestrictions	PrimaryOnly
+			Attributes	"HoldFireUntilFullReload"
+			Attributes	"MiniBoss"
+			Attributes	"UseBossHealthBar"
+			ItemAttributes
+			{
+				ItemName	tf_weapon_rocketlauncher
+				"fire rate bonus"	0
+				"damage bonus"	1.25
+				"projectile spread angle penalty"	4
+				"Projectile speed increased" 1.5
+				"faster reload rate" 0.5
+			}
+			CharacterAttributes
+			{
+				"move speed bonus"	0.5
+				"damage force reduction"	0.4
+				"airblast vulnerability multiplier"	0.4
+				"override footstep sound set"	3
+				"airblast vertical vulnerability multiplier"	0.4
+				"rage giving scale"	0.5
+			}
+		}
+		
+		T_TFBot_Chief_Soldier_Quadfire3
+		{
+			ClassIcon	soldier_quadfire_rapid
+			Health	67000
+			Name	"Captain Quadfire"
+			Class	Soldier
+			Skill	Expert
+			Item	"the chief constable"
+			WeaponRestrictions	PrimaryOnly
+			Attributes	"HoldFireUntilFullReload"
+			Attributes	"MiniBoss"
+			Attributes	"UseBossHealthBar"
+			ItemAttributes
+			{
+				ItemName	tf_weapon_rocketlauncher
+				"fire rate bonus"	0
+				"damage bonus"	1.25
+				"projectile spread angle penalty"	4
+				"Projectile speed increased" 0.5
+				"faster reload rate" 0.09
+			}
+			CharacterAttributes
+			{
+				"move speed bonus"	0.5
+				"damage force reduction"	0.4
+				"airblast vulnerability multiplier"	0.4
+				"override footstep sound set"	3
+				"airblast vertical vulnerability multiplier"	0.4
+				"rage giving scale"	0.5
+				"health regen"	200
+			}
+		}
+		
+		T_TFBot_Chief_Soldier_Airborne
+		{
+			Name	"Captain Airbourne"
+			ClassIcon	soldier_burstfire
+			Health	41000
+			AutoJumpMin 4
+			AutoJumpMax 6
+			Class	Soldier
+			Skill	Expert
+			Attributes	"HoldFireUntilFullReload"
+			Attributes	"MiniBoss"
+			Attributes	"UseBossHealthBar"
+			Attributes	"AutoJump"
+			Attributes 	"Parachute"
+			Item	"the air strike"
+			Item	"the b.a.s.e. jumper"
+			Item	"the whirly warrior"
+			ItemAttributes
+			{
+				ItemName "the air strike"
+				"damage bonus" 1.35
+				"damage penalty" 1
+				"fire rate bonus" 0.1
+				"clip size upgrade atomic" 8.0
+				"faster reload rate" 0.35
+				"critboost on kill"	5
+			}
+			CharacterAttributes
+			{
+				"increased jump height"	3.0
+				"cancel falling damage"	1
+				"override footstep sound set" 3
+				"airblast vulnerability multiplier"	0.15
+				"damage force reduction" 0.2
+				"move speed bonus" 0.5
+				"rage giving scale"	0.3
+				"airblast vertical vulnerability multiplier" 0.15
 			}
 		}
 	}
